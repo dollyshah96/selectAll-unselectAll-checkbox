@@ -1,0 +1,11 @@
+<div *ngFor="let data of options | keyvalue;">
+    <input type="checkbox" name="item" (change)="selectAll(data.key, $event)" [checked]="data.value.allChecked">
+    {{data.key}}
+    <div class="m-20" *ngFor="let i of data?.value.data; let index=index">
+        <div>
+            <input [checked]="i.checked" (change)="checkValues(i.item, data.key, $event)" type="checkbox" name="i">
+            {{i.item}}
+        </div>
+    </div>
+</div>
+<button type="submit" (click)="onSubmit()">SUBMIT</button>
